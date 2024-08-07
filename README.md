@@ -1,3 +1,14 @@
+# Scripts de carregamento
+
+Esses scripts foram criados para permitir a leitura e carregamento de dados ao Devlake.
+
+## Requisitos
+
+Copiar o arquivo .env.example para .env.
+Preencher as variáveis de ambiente necessárias:
+- VIVO_PAT: Token pessoal do Devlake
+- DEVLAKE_URL: url onde serão feitas as chamadas de API
+
 # Próximos Passos
 
 Automatizar o fluxo de criação de connections, projects e execução de extração para qualquer sigla.
