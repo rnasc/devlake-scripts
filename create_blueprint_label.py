@@ -2,12 +2,19 @@ import requests
 import logging
 import json
 import pprint
+import os
 
 from azure.devops.connection import Connection
 from msrest.authentication import BasicAuthentication
 from requests.adapters import HTTPAdapter
 from requests.auth import HTTPBasicAuth
 from urllib3.util.retry import Retry
+from dotenv import load_dotenv
+
+
+load_dotenv()
+pat = os.environ['VIVO_PAT']
+url = os.environ['DEVLAKE_URL']
 
 session = requests.Session()
 retry = Retry(connect=3, backoff_factor=0.5)
@@ -18,8 +25,8 @@ session.mount('https://', adapter)
 basic = HTTPBasicAuth('admin', 'admin')
 
 #URLs
-blueprintsUrl = "http://10.124.70.137:443/api/blueprints"
-blueprintUrl = "http://10.124.70.137:443/api/blueprints/{}"
+blueprintsUrl = url + "/blueprints"
+blueprintUrl = url + "/blueprints/{}"
 
 def createBlueprintLabels(projectRefs):
     queryParams = { "pageSize": 800, "page": 1 }
